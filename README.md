@@ -11,7 +11,7 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 - As a Developer I can create a new user, which will automatically create a profile for this user, so I can use the features only available for registered users
 - As a Developer I can list all created profiles, so I can use this information for further processing
 - As a Developer I can edit my profile, so I can add further information to my profile
-- As a Developer I can delete my profile and all it's linked content, so my account will be completely erased from the API
+- As a Developer I can delete my profile and all it's linked content, so my account will be completely erased from the API - STRETCH OBJECTIVE
 
 ### Matches
 
@@ -44,7 +44,7 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 - As a Developer I can delete a gun item so that it will no longer exist via the API
 - As a Developer I can create a pre defined category filter so I can use it to create a type filter for handgun or rifle
 
-### Shooters / Messages
+### Shooters / Messages - STRETCH OBJECTIVE
 
 - As a Developer I can view / list all profiles creates so I can use partial information to be seen via the API
 - As a Developer I can create a message so I can see the created message via the API
