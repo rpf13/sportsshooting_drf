@@ -9,6 +9,7 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 ### Setup and Documentation
 - As a Developer I can create the README of the project so an interested user can verify my work and follow up the development process
 - As a Developer I can create the TESTING part of the documentation so an interested user can verify the testing process
+- As a Developer I can create the initial DRF setup and link all necessary tools and libraries so that I can start developing the project.
 
 
 ### Profiles
@@ -21,7 +22,7 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 ### Matches
 
 - As a Developer I can create a new match so that it is visible in the matches list
-- As a Developer I can view the match details so that I can see additional information as well as the comments (if there are any)
+- As a Developer I can view the match details so that I can see additional information
 - As a Developer I can view a list of all matches so that I can use it for further processing
 - As a Developer I can edit a match created by me so that I can update or correct it
 - As a Developer I can delete a match created by me so it will no longer be available via the API
@@ -40,7 +41,7 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 - As a Developer I can create an attending object for a match I am going so I can use it for further processing via the API
 - As a Developer I can delete an attending object, which I have created so I can access / update the API with this information
 - As a Developer I can view all attending objects I have created so I can use it for further processing via the API
-- As a Developer I can create a filter so I can filter based on match, location, date and level type.
+- As a Developer I can create a filter so I can filter based on match, location, date and level type
 
 ### MyGuns - content visible to particular user
 
