@@ -59,6 +59,13 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 - As a Developer I can delete a message I have created so it will no longer be available via the API
 - As a Developer I can view a message sent to me, so I can see read the content and reply to it
 
+### Final Deployment and React Readines
+
+- As a Developer I can deploy the app to Heroku and ElephantSQL so I can access the final production app to use it in my React Frontend application
+- As a Developer I can add the necessary steps required to link the React FrontEnd application to the backend so I can start developing the React app
+- As a Developer I can add JWT functionality to my REST api so I can do proper authentication with my React app
+
+
 
 
 
