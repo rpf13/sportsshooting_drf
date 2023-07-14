@@ -6,6 +6,11 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 
 ## User Stories
 
+### Setup and Documentation
+- As a Developer I can create the README of the project so an interested user can verify my work and follow up the development process
+- As a Developer I can create the TESTING part of the documentation so an interested user can verify the testing process
+
+
 ### Profiles
 
 - As a Developer I can create a new user, which will automatically create a profile for this user, so I can use the features only available for registered users
@@ -30,12 +35,12 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 - As a Developer I can delete a comment created by me so it will no longer be availabe via the API
 - As a Developer I can list all comments so I can use it for further processing and filtering
 
-### MyMatches / Attending - content visible to particular user
+### MySchedule / Attending - content visible to particular user
 
 - As a Developer I can create an attending object for a match I am going so I can use it for further processing via the API
 - As a Developer I can delete an attending object, which I have created so I can access / update the API with this information
 - As a Developer I can view all attending objects I have created so I can use it for further processing via the API
-- As a Developer I can create a filter so I can filter bsed on match, location, date
+- As a Developer I can create a filter so I can filter based on match, location, date and level type.
 
 ### MyGuns - content visible to particular user
 
@@ -46,10 +51,10 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 
 ### Shooters / Messages - STRETCH OBJECTIVE
 
-- As a Developer I can view / list all profiles creates so I can use partial information to be seen via the API
+- As a Developer I can view / list all profiles created so I can use partial information to be seen via the API
 - As a Developer I can create a message so I can see the created message via the API
 - As a Developer I can update a message I have created so I can update its data via the API
-- As a Developer I can dele a message I have created so it will no longer be available via the API
+- As a Developer I can delete a message I have created so it will no longer be available via the API
 - As a Developer I can create a filter so that I can search based on the shooters name or club
 
 
