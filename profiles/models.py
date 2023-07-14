@@ -18,7 +18,7 @@ class Profile(models.Model):
     phone = models.CharField(max_length=20, blank=True)
     social_media = models.CharField(max_length=50, blank=True)
     note = models.TextField(blank=True)
-    
+
     class Meta:
         ordering = ['-created_at']
 
