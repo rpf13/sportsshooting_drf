@@ -19,7 +19,7 @@ class Match(models.Model):
     title = models.CharField(max_length=50)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    match_date = models.DateField
+    match_date = models.DateField()
     match_location = models.CharField(max_length=255)
     division = models.CharField(max_length=255, blank=True)
     details = models.TextField(blank=True)

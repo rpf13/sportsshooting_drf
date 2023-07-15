@@ -30,10 +30,10 @@ class MatchSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     class Meta:
-        model = Post
+        model = Match
         fields = [
-            'id', 'owner', 'title' 'created_at', 'updated_at',
+            'id', 'owner', 'title', 'created_at', 'updated_at',
             'match_date', 'match_location', 'division', 'details',
             'image', 'level_filter', 'is_owner', 'profile_id',
-            'profile_image'
+            'profile_image',
         ]

@@ -4,9 +4,6 @@ from .models import Profile
 from .serializers import ProfileSerializer
 from main.permissions import IsOwnerOrReadOnly
 
-# this file replaces the views_not_generic.py, since that one was
-# created without generic views, which is much more complex.
-
 
 class ProfileList(generics.ListAPIView):
     """
