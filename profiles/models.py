@@ -26,6 +26,7 @@ class Profile(models.Model):
         return f"{self.owner}'s profile"
 
 
+# automatically create a profiel upon user creation
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(owner=instance)
