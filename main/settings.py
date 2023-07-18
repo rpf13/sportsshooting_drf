@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'profiles',
     'matches',
     'comments',
+    'guns',
 ]
 
 MIDDLEWARE = [
