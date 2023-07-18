@@ -21,5 +21,15 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         fields = [
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image',
-            'post', 'created_at', 'updated_at', 'content'
+            'match', 'created_at', 'updated_at', 'content'
         ]
+
+
+class CommentDetailSerializer(CommentSerializer):
+    """
+    Serializer for the Comment model used in Detail view.
+    Inherits from CommentSerializer.
+    Match is a read only field so that we dont have to set
+    this permission on each update
+    """
+    match = serializers.ReadOnlyField(source='match.id')

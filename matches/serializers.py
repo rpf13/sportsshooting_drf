@@ -3,6 +3,10 @@ from matches.models import Match
 
 
 class MatchSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Match model
+    Adds validation for the image
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
