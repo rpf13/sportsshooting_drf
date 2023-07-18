@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'comments',
     'guns',
     'attendings',
+    'usermessages',
 ]
 
 MIDDLEWARE = [
