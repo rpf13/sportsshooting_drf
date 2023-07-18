@@ -16,10 +16,23 @@ class GunList(generics.ListCreateAPIView):
     permission_classes = [IsOwner, permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Gun.objects.filter(owner=self.request.user)
+        return Gun.objects.filter(
+            owner=self.request.user
+            ).order_by('-created_at')
 
     def get_permissions(self):
         return [IsAuthenticated(), IsOwner()]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+
+class GunDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = GunSerializer
+    permission_classes = [IsOwner, permissions.IsAuthenticated]
+
+    def get_permissions(self):
+        return [IsAuthenticated(), IsOwner()]
+
+    def get_queryset(self):
+        return Gun.objects.filter(owner=self.request.user)

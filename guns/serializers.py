@@ -34,6 +34,7 @@ class GunSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gun
         fields = [
-            'id', 'owner', 'brand', 'created_at', 'updated_at',
-            'gun_model', 'details', 'type', 'image', 'is_owner'
+            'id', 'owner', 'brand', 'serial_number', 'created_at',
+            'updated_at', 'gun_model', 'details', 'type', 'image',
+            'is_owner',
         ]

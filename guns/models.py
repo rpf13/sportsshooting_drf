@@ -16,6 +16,7 @@ class Gun(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     brand = models.CharField(max_length=50)
     gun_model = models.CharField(max_length=50)
+    serial_number = models.CharField(max_length=50, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     details = models.TextField(blank=True)
