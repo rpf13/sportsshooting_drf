@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('matches.urls')),
     path('', include('comments.urls')),
     path('', include('guns.urls')),
+    path('', include('attendings.urls')),
 ]
