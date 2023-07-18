@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'matches',
     'comments',
     'guns',
+    'attendings',
 ]
 
 MIDDLEWARE = [
