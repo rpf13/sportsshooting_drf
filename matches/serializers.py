@@ -33,7 +33,7 @@ class MatchSerializer(serializers.ModelSerializer):
         model = Match
         fields = [
             'id', 'owner', 'title', 'created_at', 'updated_at',
-            'match_date', 'match_location', 'division', 'details',
-            'image', 'level_filter', 'is_owner', 'profile_id',
+            'match_location', 'match_date', 'level_filter', 'division',
+            'details', 'image', 'is_owner', 'profile_id',
             'profile_image',
         ]
