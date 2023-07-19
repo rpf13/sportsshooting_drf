@@ -52,7 +52,7 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 
 ### Shooters / Messages - STRETCH OBJECTIVE
 
-- As a Developer I can view / list all profiles created so I can use partial information to be seen via the API
+- As a Developer I can view / list all profiles created so I can use partial information to be seen via the API in my frontend application
 - As a Developer I can create a filter so that I can search based on the shooters name or club
 - As a Developer I can create a message to another shooter so I can see the created message via the API
 - As a Developer I can update a message I have created so I can update its data via the API
