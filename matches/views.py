@@ -19,11 +19,18 @@ class MatchList(generics.ListCreateAPIView):
         attendings_count=Count('attendings', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
-        filters.OrderingFilter
+        filters.OrderingFilter,
+        filters.SearchFilter,
     ]
     ordering_fields = [
         'comments_count',
         'attendings_count',
+    ]
+    search_fields = [
+        'owner__username',
+        'title',
+        'match_date',
+        'match_location',
     ]
 
     # overwrite DRF generic view to set object owner to current user
