@@ -5,6 +5,8 @@ from .models import Usermessage
 class UsermessageSerializer(serializers.ModelSerializer):
     """
     Serializer for the Usermessage model
+    The currently logged in user will be used as the sender of
+    the message
     """
     sender = serializers.ReadOnlyField(source='sender.username')
     is_sender = serializers.SerializerMethodField()

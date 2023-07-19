@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions, filters
-from main.permissions import IsOwnerOrReadOnly
+from main.permissions import IsSenderOrReadOnly
 from .models import Usermessage
 from .serializers import UsermessageSerializer
 
@@ -17,3 +17,14 @@ class UsermessageList(generics.ListCreateAPIView):
     # overwrite DRF generic view to set object owner to current user
     def perform_create(self, serializer):
         serializer.save(sender=self.request.user)
+
+
+class UsermessagesDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve, Update, Delete Usermessages object, if current user
+    is the owner
+    """
+    serializer_class = UsermessageSerializer
+    permission_classes = [IsSenderOrReadOnly]
+
+    queryset = Usermessage.objects.order_by('-created_at')
