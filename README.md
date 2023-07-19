@@ -26,7 +26,8 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 - As a Developer I can view a list of all matches so that I can use it for further processing
 - As a Developer I can edit a match created by me so that I can update or correct it
 - As a Developer I can delete a match created by me so it will no longer be available via the API
-- As a Developer I can create a filter so I can search based on match, location, date or shooter
+- As a Developer I can create count attending and count comments object including a filter option so that I can use this cumulated data in my frontend app and use the filter for it
+- As a Developer I can create a search feature so I can search based on match, location, date or shooter
 - As a Developer I can create a pre defined category filter so I can use it to create a type filter for level type of match
 
 ### Comment

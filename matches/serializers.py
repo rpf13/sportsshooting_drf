@@ -13,6 +13,8 @@ class MatchSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     attending_id = serializers.SerializerMethodField()
+    comments_count = serializers.ReadOnlyField()
+    attendings_count = serializers.ReadOnlyField()
 
     # Validation check using DRF field validation method
     # We use it to check size, format of the image
@@ -35,6 +37,11 @@ class MatchSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+    # if user is logged in and authenticated
+    # filter attending objects to see if user is
+    # attending match and if so, set attending
+    # variable. If this variable is set, return the
+    # attending_id, else None
     def get_attending_id(self, obj):
         user = self.context['request'].user
         if user.is_authenticated:
@@ -50,5 +57,6 @@ class MatchSerializer(serializers.ModelSerializer):
             'id', 'owner', 'title', 'created_at', 'updated_at',
             'match_location', 'match_date', 'level_filter', 'division',
             'details', 'image', 'is_owner', 'profile_id',
-            'profile_image', 'attending_id',
+            'profile_image', 'attending_id', 'comments_count',
+            'attendings_count',
         ]

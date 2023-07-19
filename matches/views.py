@@ -1,3 +1,4 @@
+from django.db.models import Count
 from rest_framework import generics, permissions, filters
 from main.permissions import IsOwnerOrReadOnly
 from .models import Match
@@ -13,7 +14,17 @@ class MatchList(generics.ListCreateAPIView):
     # serializer_class will result rendered form in browser
     serializer_class = MatchSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Match.objects.order_by('-created_at')
+    queryset = Match.objects.annotate(
+        comments_count=Count('comment', distinct=True),
+        attendings_count=Count('attendings', distinct=True)
+    ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter
+    ]
+    ordering_fields = [
+        'comments_count',
+        'attendings_count',
+    ]
 
     # overwrite DRF generic view to set object owner to current user
     def perform_create(self, serializer):
@@ -28,4 +39,7 @@ class MatchDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = MatchSerializer
     permission_classes = [IsOwnerOrReadOnly]
 
-    queryset = Match.objects.order_by('-created_at')
+    queryset = Match.objects.annotate(
+        comments_count=Count('comment', distinct=True),
+        attendings_count=Count('attendings', distinct=True)
+    ).order_by('-created_at')
