@@ -36,13 +36,14 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 - As a Developer I edit a comment created by me so I can update its data
 - As a Developer I can delete a comment created by me so it will no longer be availabe via the API
 - As a Developer I can list all comments so I can use it for further processing and filtering
+-As a Developer I can add a filter feature to the comments app** so that I can see all comments added to a particular match
 
 ### MySchedule / Attending - content visible to particular user
 
 - As a Developer I can create an attending object for a match I am going so I can use it for further processing via the API
 - As a Developer I can delete an attending object, which I have created so I can access / update the API with this information
 - As a Developer I can view all attending objects I have created so I can use it for further processing via the API
-- As a Developer I can create a search feature so that I can filter based on match, location, date
+- As a Developer I can create a filter feature so that I can filter matches based on a particular user, so I can see for each user, which matches he will attend.
 
 ### MyGuns - content visible to particular user
 

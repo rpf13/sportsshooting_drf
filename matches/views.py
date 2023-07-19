@@ -35,6 +35,7 @@ class MatchList(generics.ListCreateAPIView):
         'match_location',
     ]
     filterset_fields = [
+        # filters on matches a user is attending
         'attendings__owner__profile',
     ]
 
