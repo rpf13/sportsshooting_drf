@@ -6,21 +6,22 @@ class UsermessageSerializer(serializers.ModelSerializer):
     """
     Serializer for the Usermessage model
     """
-    owner = serializers.ReadOnlyField(source='owner.username')
-    is_owner = serializers.SerializerMethodField()
-    profile_id = serializers.ReadOnlyField(source='owner.profile.id')
-    profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    sender = serializers.ReadOnlyField(source='sender.username')
+    is_sender = serializers.SerializerMethodField()
+    profile_id = serializers.ReadOnlyField(source='sender.profile.id')
+    profile_image = serializers.ReadOnlyField(
+        source='sender.profile.image.url'
+    )
 
-    def get_is_owner(self, obj):
+    def get_is_sender(self, obj):
         request = self.context['request']
-        return request.user == obj.owner
+        return request.user == obj.sender
 
     class Meta:
         model = Usermessage
         fields = [
-            'id', 'owner', 'is_owner', 'created_at', 'updated_at',
-            'profile_id', 'profile_image', 'sender', 'receiver',
-            'content',
+            'id', 'sender', 'is_sender', 'created_at', 'updated_at',
+            'profile_id', 'profile_image', 'receiver', 'content',
         ]
 
 

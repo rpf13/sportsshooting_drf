@@ -16,4 +16,4 @@ class UsermessageList(generics.ListCreateAPIView):
 
     # overwrite DRF generic view to set object owner to current user
     def perform_create(self, serializer):
-        serializer.save(owner=self.request.user)
+        serializer.save(sender=self.request.user)
