@@ -1,4 +1,5 @@
 from django.db.models import Count
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, permissions, filters
 from main.permissions import IsOwnerOrReadOnly
 from .models import Match
@@ -21,6 +22,7 @@ class MatchList(generics.ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend,
     ]
     ordering_fields = [
         'comments_count',
@@ -31,6 +33,9 @@ class MatchList(generics.ListCreateAPIView):
         'title',
         'match_date',
         'match_location',
+    ]
+    filterset_fields = [
+        'attendings__owner__profile',
     ]
 
     # overwrite DRF generic view to set object owner to current user
