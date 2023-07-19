@@ -19,6 +19,14 @@ class GunList(generics.ListCreateAPIView):
         return Gun.objects.filter(
             owner=self.request.user
             ).order_by('-created_at')
+    filter_backends = [
+        filters.SearchFilter
+    ]
+    search_fields = [
+        'brand',
+        'gun_model',
+        'serial_number',
+    ]
 
     def get_permissions(self):
         return [IsAuthenticated(), IsOwner()]
