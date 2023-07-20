@@ -37,6 +37,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 5,
+    'DATETIME_FORMAT': '%d %b %Y',
+    'DATE_FORMAT': '%d %m %Y',
 }
 
 # Make sure for PROD deployment default renderer for API will only be json
