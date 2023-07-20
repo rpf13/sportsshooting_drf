@@ -26,6 +26,26 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Enable logic for using either sessions authentication if env.py is set to
+# development, else use jwt tokens
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [(
+        'rest_framework.authentication.SessionAuthentication'
+        if 'DEV' in os.environ
+        else 'dj_rest_auth.jwt_auth.JWTCookieAuthentication'
+    )],
+}
+
+# JWT settings
+REST_USE_JWT = True
+JWT_AUTH_SECURE = True
+JWT_AUTH_COOKIE = 'sportsshooting-auth'
+JWT_AUTH_REFRESH_COOKIE = 'sportsshooting-refresh-token'
+
+# Overwrite the default UserDetailsSerializer used for the user authentication
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'main.serializers.CurrentUserSerializer'
+}
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -55,6 +75,13 @@ INSTALLED_APPS = [
     'cloudinary',
     'rest_framework',
     'django_filters',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
     'profiles',
     'matches',
     'comments',
@@ -62,6 +89,10 @@ INSTALLED_APPS = [
     'attendings',
     'usermessages',
 ]
+
+# Setting the database ID of the site object for the current site
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
