@@ -1,5 +1,6 @@
 from rest_framework import generics, permissions, filters
 from rest_framework.permissions import IsAuthenticated
+from django_filters.rest_framework import DjangoFilterBackend
 from main.permissions import IsOwner
 from .models import Gun
 from .serializers import GunSerializer
@@ -20,12 +21,16 @@ class GunList(generics.ListCreateAPIView):
             owner=self.request.user
             ).order_by('-created_at')
     filter_backends = [
-        filters.SearchFilter
+        filters.SearchFilter,
+        DjangoFilterBackend,
     ]
     search_fields = [
         'brand',
         'gun_model',
         'serial_number',
+    ]
+    filterset_fields = [
+        'type',
     ]
 
     def get_permissions(self):
