@@ -39,6 +39,12 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 5,
 }
 
+# Make sure for PROD deployment default renderer for API will only be json
+if 'DEV' not in os.environ:
+    REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = [
+        'rest_framework.renderers.JSONRenderer',
+    ]
+
 # JWT settings
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
