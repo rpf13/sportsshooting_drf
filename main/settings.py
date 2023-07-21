@@ -53,6 +53,7 @@ REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'sportsshooting-auth'
 JWT_AUTH_REFRESH_COOKIE = 'sportsshooting-refresh-token'
+JWT_AUTH_SAMESITE = 'None'
 
 # Overwrite the default UserDetailsSerializer used for the user authentication
 REST_AUTH_SERIALIZERS = {
@@ -63,7 +64,7 @@ REST_AUTH_SERIALIZERS = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-k^(x=#u$5)lqd=0+pn(a^+y^$bb@t=o3t(l-o%zh*e2u80(wtz'  # noqa
+SECRET_KEY = os.getenv('SECRET_KEY')  # noqa
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEBUG' in os.environ
@@ -94,6 +95,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
+    'corsheaders',
     'profiles',
     'matches',
     'comments',
@@ -107,6 +109,7 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -115,6 +118,20 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Use deployed React once set as CLIENT_ORIGIN var in heroku
+# otherwise allow gitpod dev environment
+
+if 'CLIENT_ORIGIN' in os.environ:
+    CORS_ALLOWED_ORIGINS = [
+        os.environ.get('CLIENT_ORIGIN')
+    ]
+else:
+    CORS_ALLOWED_ORIGIN_REGEXES = [
+        r"^https://.*\.gitpod\.io$",
+    ]
+
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'main.urls'
 
