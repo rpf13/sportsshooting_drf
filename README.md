@@ -2,6 +2,10 @@
 
 The "SportsShooting DRF API" is a site, which acts as the API for the related React Front End project `INSERT LINK HERE`. It will provide the necessary backend and API functionality, to be consumed by the React frontend application.
 
+Link to deployed DRF API site: [SportsShooting DRF API](https://sportsshooting-drf-rpf13-5060e23f8756.herokuapp.com/)
+Link to deployed React Frontend site: `INSERT LINK HERE`
+Link to Frontend React GitHub repo: `INSERT LINK HERE`
+
 ---
 
 ## User Stories
@@ -10,7 +14,6 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 - As a Developer I can create the README of the project so an interested user can verify my work and follow up the development process
 - As a Developer I can create the TESTING part of the documentation so an interested user can verify the testing process
 - As a Developer I can create the initial DRF setup and link all necessary tools and libraries so that I can start developing the project.
-
 
 ### Profiles
 
@@ -69,9 +72,6 @@ The "SportsShooting DRF API" is a site, which acts as the API for the related Re
 - As a Developer I can refactor the existing JWT solution with tokens in local storage to a JWT httpOnly cookie solution** so that **my application gets more secure and JS has no longer access to the local storage tokens
 
 
-
-
-
 ---
 
 ## Wireframes
@@ -107,6 +107,16 @@ The following ERD (Entity Relationship Diagram) displays the SQL database schema
 
 ---
 
+## Features
+
+
+---
+
+## Tools & Technologies Used
+
+
+---
+
 ## Development
 
 The following chapters describe why and how I have choosen to code certain parts the way they are. This section should give an explanation to my thinking process and explain the reader some conceptual decisions.
@@ -124,3 +134,57 @@ I have decided to use (mostly) multiline commits, but using tags as described th
 - **maint:** for general maintenance
 
 ---
+
+## Agile Development Process
+
+### Github Projects
+[Github Projects](https://github.com/users/rpf13/projects/6/views/1) has been used as the Agile tool during the development phase of this project. The Kanban board was very useful to keep track on the tasks. I have created 4 columns (ToDo, In Progress, On Hold, Done) and moved the stories accordingly. 
+The On Hold column has served as a "parking spaces", when a story was partially done, but not completely finished.
+
+![Github Projects Kanban Board](docs/images/github_projects.png)
+
+### GitHub Issues
+[Github Issues](https://github.com/rpf13/sportsshooting_drf/issues) has been used to create all the stories, before they were placed on the projects Kanban board. I have created an issues templates to simplify creation.
+Each issue has a label for the MoSCoW prioritization.
+
+Once a story has been created via the template, it will be automatically added to the Kanban board in the Todo column.
+
+![Github Issues](docs/images/github_issues.png)
+
+### MoSCoW Prioritization
+
+The MoSCoW prioritization has been used to divide all epics and stories into the following categories:
+
+- MustHave: guaranteed to be delivered
+- ShouldHave: adds significant value, but not mandatory for MVP
+- CouldHave: adds value, would be nice to have
+- WontHave: no priority for this iteration, acts as placeholder for future implementation
+
+A related Github label has been created for each category and added to each epic, story - which makes it easy to identify and see the value it brings.
+
+---
+
+## Testing
+
+Testing is covered in a separate page, view [TESTING.md](TESTING.md)
+
+---
+
+## Deployment
+
+
+---
+
+## Credits
+
+### Code
+
+### Content
+
+### Media
+
+
+---
+
+### Acknowledgements
+
