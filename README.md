@@ -71,32 +71,6 @@ Link to Frontend React GitHub repo: `INSERT LINK HERE`
 - As a Developer I can add JWT functionality to my REST api so that I can do "base" JWT authentication with my React app
 - As a Developer I can refactor the existing JWT solution with tokens in local storage to a JWT httpOnly cookie solution** so that **my application gets more secure and JS has no longer access to the local storage tokens
 
-
----
-
-## Wireframes
-
-The Wireframes are the prototype of this project and show the base idea and the skeleton of the app. Even though this repo is mainly used for the API backend, the Wireframes of the frontend application do still have a crucial impact, since they define the data to be consumed.. I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
-
-<details>
-<summary>Mobile Wireframe</summary>
-
-
-</details>
-
-<details>
-  
-<summary>Desktop Wireframe</summary>
-  
-![Main Site](docs/wireframes/desktop/d_main.png)
-![Match Detail](docs/wireframes/desktop/d_match_detail.png)
-![MySchedule](docs/wireframes/desktop/d_myschedule.png)
-![Shooters](docs/wireframes/desktop/d_shooters.png)
-![MyGuns](docs/wireframes/desktop/myguns.png)
-![Profile](docs/wireframes/desktop/d_profile.png)
-
-</details>
-
 ---
 
 ## Data Model
