@@ -1,10 +1,12 @@
 # SportsShooting - DRF API
 
-The "SportsShooting DRF API" is a site, which acts as the API for the related React Front End project `INSERT LINK HERE`. It will provide the necessary backend and API functionality, to be consumed by the React frontend application.
+The "SportsShooting DRF API" is a site, which acts as the API for the related React Front End project [SportsShooting](https://github.com/rpf13/sportsshooting_react). It will provide the necessary backend and API functionality, to be consumed by the React frontend application.
 
 Link to deployed DRF API site: [SportsShooting DRF API](https://sportsshooting-drf-rpf13-5060e23f8756.herokuapp.com/)
-Link to deployed React Frontend site: `INSERT LINK HERE`
-Link to Frontend React GitHub repo: `INSERT LINK HERE`
+
+Link to deployed React Frontend site: [SportsShooting Deployed](https://sportsshooting-rpf13-d2b23798b278.herokuapp.com/)
+
+Link to Frontend React GitHub repo: [SportsShooting Repo](https://github.com/rpf13/sportsshooting_react)
 
 ---
 
