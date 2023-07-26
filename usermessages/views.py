@@ -1,5 +1,6 @@
 from rest_framework import generics, permissions, filters
-from main.permissions import IsSenderOrReadOnly
+from django.db.models import Q
+from main.permissions import IsSenderOrReadOnly, IsSenderOrReceiver
 from .models import Usermessage
 from .serializers import UsermessageSerializer
 
@@ -11,8 +12,18 @@ class UsermessageList(generics.ListCreateAPIView):
     logged in user.
     """
     serializer_class = UsermessageSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Usermessage.objects.all().order_by('-created_at')
+    permission_classes = [IsSenderOrReceiver]
+    # queryset = Usermessage.objects.all().order_by('-created_at')
+
+    def get_queryset(self):
+        """
+        return only the objects, where the current user is either sender
+        or the receiver
+        """
+        messages = Usermessage.objects.filter(
+            Q(sender=self.request.user.id) | Q(receiver=self.request.user.id)
+        )
+        return messages
 
     # overwrite DRF generic view to set object owner to current user
     def perform_create(self, serializer):
