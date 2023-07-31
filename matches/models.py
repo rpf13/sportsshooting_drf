@@ -10,9 +10,9 @@ class Match(models.Model):
     Default image and image validation
     """
     level_filter_choices = [
-        ('level1', 'Level-1'), ('level2', 'Level-2'),
-        ('level3', 'Level-3'), ('level4', 'Level-4'),
-        ('level5', 'Level-5'),
+        ('Level-1', 'Level-1'), ('Level-2', 'Level-2'),
+        ('Level-3', 'Level-3'), ('Level-4', 'Level-4'),
+        ('Level-5', 'Level-5'),
     ]
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -28,7 +28,7 @@ class Match(models.Model):
         blank=True
     )
     level_filter = models.CharField(
-        max_length=32, choices=level_filter_choices, default='level1'
+        max_length=32, choices=level_filter_choices, default='Level-1'
     )
 
     class Meta:
