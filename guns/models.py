@@ -21,7 +21,7 @@ class Gun(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     details = models.TextField(blank=True)
     type = models.CharField(
-        max_length=32, choices=gun_filter_choices, default='handgun'
+        max_length=32, choices=gun_filter_choices, default='Handgun'
     )
     image = models.ImageField(
         upload_to='images/', default='../default_event_i89yt9',
