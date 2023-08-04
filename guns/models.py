@@ -10,7 +10,7 @@ class Gun(models.Model):
     Default image and image validation
     """
     gun_filter_choices = [
-        ('handgun', 'Handgun'), ('rifle', 'Rifle'),
+        ('Handgun', 'Handgun'), ('Rifle', 'Rifle'),
     ]
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
