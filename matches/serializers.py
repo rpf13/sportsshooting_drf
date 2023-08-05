@@ -15,7 +15,9 @@ class MatchSerializer(serializers.ModelSerializer):
     attending_id = serializers.SerializerMethodField()
     comments_count = serializers.ReadOnlyField()
     attendings_count = serializers.ReadOnlyField()
-    match_date = serializers.SerializerMethodField()
+    match_date = serializers.DateField(
+        format="%d %b %Y", input_formats=['%d %b %Y', 'iso-8601']
+    )
 
     # Validation check using DRF field validation method
     # We use it to check size, format of the image
@@ -61,6 +63,3 @@ class MatchSerializer(serializers.ModelSerializer):
             'profile_image', 'attending_id', 'comments_count',
             'attendings_count',
         ]
-
-    def get_match_date(self, obj):
-        return obj.match_date.strftime("%d %b %Y")
