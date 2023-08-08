@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Match
 from attendings.models import Attending
+from attendings.serializers import AttendingSerializer
 
 
 class MatchSerializer(serializers.ModelSerializer):
@@ -14,6 +15,7 @@ class MatchSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
     attending_id = serializers.SerializerMethodField()
     comments_count = serializers.ReadOnlyField()
+    attendings = AttendingSerializer(many=True, read_only=True)
     attendings_count = serializers.ReadOnlyField()
     match_date = serializers.DateField(
         format="%d %b %Y", input_formats=['%d %b %Y', 'iso-8601']
@@ -61,5 +63,5 @@ class MatchSerializer(serializers.ModelSerializer):
             'match_location', 'match_date', 'level_filter', 'division',
             'details', 'image', 'is_owner', 'profile_id',
             'profile_image', 'attending_id', 'comments_count',
-            'attendings_count',
+            'attendings_count', 'attendings',
         ]

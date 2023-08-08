@@ -18,7 +18,7 @@ class MatchList(generics.ListCreateAPIView):
     queryset = Match.objects.annotate(
         comments_count=Count('comment', distinct=True),
         attendings_count=Count('attendings', distinct=True)
-    ).order_by('-created_at')
+    ).prefetch_related('attendings__owner').order_by('-created_at')
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
@@ -56,4 +56,4 @@ class MatchDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Match.objects.annotate(
         comments_count=Count('comment', distinct=True),
         attendings_count=Count('attendings', distinct=True)
-    ).order_by('-created_at')
+    ).prefetch_related('attendings__owner').order_by('-created_at')
