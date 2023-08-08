@@ -5,10 +5,11 @@ from .models import Attending
 
 class AttendingSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
+    profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
 
     class Meta:
         model = Attending
-        fields = ['id', 'created_at', 'owner', 'match']
+        fields = ['id', 'created_at', 'owner', 'profile_image', 'match']
 
     # Validate that a user cannot attend a match twice
     # done via using integrity error
