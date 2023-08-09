@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 
 class Profile(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=20, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(

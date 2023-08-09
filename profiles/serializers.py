@@ -17,4 +17,5 @@ class ProfileSerializer(serializers.ModelSerializer):
             'id', 'owner', 'created_at', 'updated_at', 'image',
             'image', 'club', 'division', 'license', 'country',
             'mail', 'phone', 'social_media', 'note', 'is_owner',
+            'name',
         ]
