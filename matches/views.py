@@ -38,6 +38,7 @@ class MatchList(generics.ListCreateAPIView):
         # filters on matches a user is attending
         'attendings__owner__profile',
         'level_filter',
+        'owner__profile',
     ]
 
     # overwrite DRF generic view to set object owner to current user
