@@ -22,7 +22,7 @@ Link to Frontend React GitHub repo: [SportsShooting Repo](https://github.com/rpf
 - As a Developer I can create a new user, which will automatically create a profile for this user, so I can use the features only available for registered users
 - As a Developer I can list all created profiles, so I can use this information for further processing
 - As a Developer I can edit my profile, so I can add further information to my profile
-- As a Developer I can delete my profile and all it's linked content, so my account will be completely erased from the API - STRETCH OBJECTIVE
+- As a Developer I can delete my profile and all it's linked content, so my account will be completely erased from the API - STRETCH OBJECTIVE - Not implemented
 
 ### Matches
 
