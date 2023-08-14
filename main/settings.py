@@ -102,7 +102,6 @@ INSTALLED_APPS = [
     'comments',
     'guns',
     'attendings',
-    'usermessages',
 ]
 
 # Setting the database ID of the site object for the current site
