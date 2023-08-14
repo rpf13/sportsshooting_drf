@@ -32,5 +32,4 @@ urlpatterns = [
     path('', include('comments.urls')),
     path('', include('guns.urls')),
     path('', include('attendings.urls')),
-    path('', include('usermessages.urls')),
 ]
