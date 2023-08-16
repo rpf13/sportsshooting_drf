@@ -47,7 +47,7 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 
 ---
 
-## User Story Testing
+## User Story Testing | Manual Testing
 
 I have tested the functional user stories and listed in the following table, together with a screenshot. Since I did also add user stories for admin tasks like deployment, documentation, ... I did not include them in the table - since snapshots are difficult for those. However, they are also clearly documented in the README section.
 
@@ -112,12 +112,40 @@ All testcases are successfully executed:
 
 ![Unit Test Gun & Matches App](docs/testing/unit_matches_guns.png)
 
-The following table shows a summary of testcases executed:
+The following table shows a summary of testcases executed. The Guns and the Matches app got tested via the automated unit testing.
 
 | Class | Function | Description | Comment |
 | --- | --- | --- | --- |
+| GunCreateTests |  |  |  |
+|  | setUp | create testcredentials | base testdata to be used in test |
+|  | test_create_gun | create gun object with the 2 mandatory fields |   |
+|  | test_create_gun_with_large_image | create gun object with too large image |  |
+| GunRetrieveTests |   |   |   |
+|  | setUp | create testcredentials | base testdata to be used in test |
+|  | test_retrieve_gun | test if we can get the data and assess on brand  |   |
+|  | test_unauthenticated_user_cannot_retrieve | test if the unauth user cannot retrieve data | unauth user should not have access at all |
+| unUpdateTests |   |   |   |
+|  | setUp | create testcredentials | base testdata to be used in test |
+|  | test_update_gun | check if update of brand and gun_model field is successful |  |
+| GunDeleteTests |  |  |  |
+|  | setUp | create testcredentials | base testdata to be used in test |
+|  | test_delete_gun | test if deletion of object works | since only an auth and owner can access data, no further x-check is required |
 | MatchCreateTests |  |  |  |
 |  | setUp | create testcredentials | base testdata to be used in test |
+|  | test_create_match | check match creation and assess based on match title |  |
+|  | test_create_match_without_mandatory_fields | check if we get a 400 error when mandatory fields for match creation are not set |  |
+| MatchRetrieveTests |  |  |  |
+|  | setUp | create testcredentials | base testdata to be used in test |
+|  | test_retrieve_match | check if we can get match by PK and assess title and match_date | this is a double check since the match_date gets adjusted in back end, therefore the value format is different thant it was when created |
+| MatchUpdateTests |  |  |  |
+|  | setUp | create testcredentials | base testdata to be used in test |
+|  | test_update_match | check if match title can be updated |  |
+| MatchUpdatePermissionTests |  |  |  |
+|  | setUp | create testcredentials | base testdata to be used in test |
+|  | test_update_other_users_match | verify if user-a cannot update user-b's match |  |
+| MatchDeleteTests |  |  |  |
+|  | setUp | create testcredentials | base testdata to be used in test |
+|  | est_delete_match | the owner of the match must be able to delete the object | assess checks for 204 error to see if it is not existing after deletion |
 
 ---
 
@@ -146,4 +174,5 @@ Any remaining open issues can be tracked [here](https://github.com/rpf13/sportss
 ## Unfixed Bugs
 
 There are no remaining bugs that I am aware of.
+
 ---
