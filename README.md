@@ -118,23 +118,116 @@ The following list will give a brief overview of the available API andpoints
 
 ## Features
 
+The following section describes the features of the API. The Djange REST Framework built in API browser is used to display snapshots of the individual features. This way it is more human readable to display the functionality compared to the plain json output of the API.
+
 ### Main Entry Page
 
+The main url of the API application points to the "Welcoome" page, displaying a message to the user.
+
+![Main Entry Page](docs/testing/00_main_entry.png)
 
 ### User Profile
 
+As part of the profiles app, or better said, as used for the profiles, there is a variety of urls provided by the dj-rest-auth package, which has been used to implemente secure authentication via JWT.
+We do have the following endpoints available:
+- registration: 
+- login
+- logout
+- user
+- token refresh
+
+These endpoints are used in the front end via the repsective forms to create and manage a new user.
+The followin snapshots display each of them.
+
+<details>
+<summary>JWT dj-rest url snapshots</summary>
+
+![JWT Register](docs/testing/01_jwt_register.png)
+![JWT Login](docs/testing/01_jwt_login.png)
+![JWT Logout](docs/testing/01_jwt_logout.png)
+![JWT User](docs/testing/01_jwt_user.png)
+![JWT Token Refresh](docs/testing/01_jwt_token_refresh.png)
+
+</details>
+
+The profile model has a 1:1 relationship to the user and it enriches the user with more data. The most obvious one is the default profile image, which gets added to the user profile. Since the user is not required to add all this additional data to his profile, all fields are optional.
+The default sorting of the profiles, when sent as a list back to the front end, is the `created_at` field with the most recent first.
+A search feature has been implemented via the `search_fields` in the views file. With this it is possible to search after `username` or `club` field.
+
+![Profiles](docs/testing/01_profiles.png)
+
+Once I am logged in as a user, I have the possibility to edit / update all fields of my own profile. The custom permission class `IsOwnerOrReadOnly` has been defined and used. However, it is possible to GET the details of a specific profile with all its data even when logged out. This is important due to the way this data is consumend in the front end.
+
+![Profile Details & Edit](docs/testing/01_profiles_detail.png)
 
 ### Matches
+
+The matches model is the primary model of the whole application, since the main usage is about creating match entries and share it. The GET is accessible for logged in and logged out users, since the data itself is no secret and should be wiedely shared. However, only a logged in user is also able to create a new entry.
+
+![Matches List](docs/testing/02_matches_list.png)
+
+The matches list section shows all sorts of data. It has an obvious relation to the user and it sets the `owner` field via the serializer, besides the `is_owner` validation flag. The serializer.
+The model has three mandatory fields, which are `title`, `match_date` and `match_location`. There is also a default sorting in place to put the most recent one first.
+
+Once the user is logged in, he can create a new match entry via filling in at least he mandatory fields. The image field is treated in the way that there is a check if the image is larger than 2MB or 4096 x 4096 pixels. This is important due to the limitation of the cloudinary free tier plan, which has been used for this project.
+
+![Match Create](docs/testing/02_matches_create.png)
+
+There is a variety of fielters / search fields in place. It is possible to search after the `username`, `title`, `match_date` as well as the `match_location`. Furthermore some `filterset_fields` have been added to filter based on the `level_filter` or on `profile`. 
+Each match gets posted by default with a `level_filter` value of `Level-1`, if the user does not choose another value. This field is later used on the front end to filter based on them.
+
+![Match Filters](docs/testing/02_match_list_filters.png)
+
+For each match entry, there is a detail view available via calling it with the PK. If the user is logged in, he has the option to alter his own created matches. The already existing data is pre populated in the form / request. This detail view, based on the `RetrieveUpdateDestroyAPIView` also lets the user delete the event, if he is the owner.
+The attending object is also visible in this view, since it has a relation to the model. It is described in the upcoming chapter.
+
+![Match Detail & Delete](docs/testing/02_match_detail_delete.png)
 
 
 ### Comments
 
+The Comments model has a one to many relation to the user as well as the match model. It is a simple model, which only has a `content` field, besides the necessary relations to the `user` and `match`. It automatically adds a `created_at` and `updated_at` datetime field to it. The ordering is based on the `created_at` field with the most recent first.
+The permission class is also set that in can only be created / edited once logged in, otherwise only the read is available.
+Creating a comment only gives the option to add the content and choose the relation to the particular match - which is implemented in the front end to be done automatically since the feature is available for a particular match entry.
+A filter is in place to filter all comments for a particular match.
+
+![Comments List & Create](docs/testing/03_comments_list.png)
+
+The detail view of a comment is also available via its PK.
+If a user is logged in and hence the owner of a comment, he can update or delete it. The update also returns the availabla data as pre populated data. This also allows the owner to delete a particular comment.
+
+![Comments Detail & Delete](docs/testing/03_comments_edit_delete.png)
 
 ### Attending
 
+The attendings model is used with a one to many relation based on teh user and the match. The main purpose is that a logged in user can attend a match and that this will create such an attending object. Please note that it is crucial that also the match event owner can attend his own match event. Only this way, a correct number of attendings are possible.
+The model uses the `unique_together` setting via the Meta class, which will make sure that:
+    - User A can participate in Match 1.
+    - User A can also participate in Match 2.
+    - User B can participate in Match 1.
+But, User A cannot participate in Match 1 again because that combination already exists.
+
+This is also further checked in the `crate` method of the serializer via the IntegrityError check.
+
+![Attending List & Create](docs/testing/04_attending_list_create.png)
+
+If the detail view is accessed via it's PK, not much more data is available, however, the logged in user has the possiblility to delete his attending object, which will have a direct impact to the match model.
+
+![Attending Detail & Delete](docs/testing/04_attending_detail_delete.png)
 
 ### MyGuns (Gun)
 
+The gun model has a one to many relation to the user. It is only available to the logged in user and only to himself, not to any other. Therefore, to assure the security and integrity of the data to his respective owner, a custom permission class has been built. `IsOwner` is the custom permissionclass, which only allows the owner of an object to view or edit it. Alongside the django `IsAuthenticated` permission class, this is kind of a double verification to ensure the integrity.
+
+The model only requires two mandatory fields like the `brand` and `gun_model`. The iamge field uses the same size check, as already explained in the match section.
+A filterset filed is implemented in order to filter based on `handgun` or `rifle` type of gun, where s the `handgun` is the default value. There are also some search fields defined in order to search after the `brand`, `gund_model` or the `serial_number`
+
+![Gun List & Filter](docs/testing/05_gun_list_filter.png)
+![Gund Create](docs/testing/05_gun_create.png)
+
+If the detail view is called via it's PK, it is again possible to update the object, where as the existing data gets pre populated. The deletion of the gun objct is also possible.
+
+[Gun Detail & Delete](docs/testing/05_gun_detail_delete.png)
 
 ### Usermessages
 
