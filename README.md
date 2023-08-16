@@ -473,6 +473,8 @@ I used the following technologies and resources to create this site:
 - [Cloudinary](https://cloudinary.com) used for dynamic file storage for all images.
 - [Markdown Builder by Tim Nelson](https://traveltimn.github.io/markdown-builder) used to help generate the Markdown files.
 - [Freelogodesign](https://www.freelogodesign.org) has been used to create the default images and icons used for the upload sections
+- [Filtering Django REST](https://www.django-rest-framework.org/api-guide/filtering/) Article about how to implement filters
+- [Django REST Testing](https://docs.djangoproject.com/en/4.2/topics/testing/tools/#testing-tools) Article about the REST testing tools
 
 In addition to the above mentioned resources, I have used the following libraries, as specified in the requirements.txt file.
 
