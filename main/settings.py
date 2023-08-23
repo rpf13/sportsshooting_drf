@@ -137,18 +137,6 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
-# temp test
-
-# CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ALLOW_ALL_HEADERS = True
-
-# CORS_ALLOWED_ORIGINS = [
-#     os.environ.get('CLIENT_ORIGIN'),
-# ]
-# CORS_ORIGIN_WHITELIST = [
-#     os.environ.get('CLIENT_ORIGIN'),
-# ]
-
 CORS_ALLOW_ALL_HEADERS = True
 CORS_ALLOW_CREDENTIALS = True
 
