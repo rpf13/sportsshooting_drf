@@ -11,37 +11,36 @@ I have used the recommended [CI Python Linter](https://pep8ci.herokuapp.com) to 
 
 | File | CI URL | Screenshot | Notes |
 | --- | --- | --- | --- |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/apps.py) | ![screenshot](docs/testing/pyli_attendings_apps.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/models.py) | ![screenshot](docs/testing/pyli_attendings_models.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/serializers.py) | ![screenshot](docs/testing/pyli_attendings_serializers.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/urls.py) | ![screenshot](docs/testing/pyli_attendings_urls.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/views.py) | ![screenshot](docs/testing/pyli_attendings_views.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/apps.py) | ![screenshot](docs/testing/pyli_comments_apps.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/models.py) | ![screenshot](docs/testing/pyli_comments_models.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/serializers.py) | ![screenshot](docs/testing/pyli_comments_serializers.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/urls.py) | ![screenshot](docs/testing/pyli_comments_urls.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/views.py) | ![screenshot](docs/testing/pyli_comments_views.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/apps.py) | ![screenshot](docs/testing/pyli_guns_apps.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/models.py) | ![screenshot](docs/testing/pyli_guns_models.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/serializers.py) | ![screenshot](docs/testing/pyli_guns_serializers.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/tests.py) | ![screenshot](docs/testing/pyli_guns_tests.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/urls.py) | ![screenshot](docs/testing/pyli_guns_urls.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/views.py) | ![screenshot](docs/testing/pyli_guns_views.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/permissions.py) | ![screenshot](docs/testing/pyli_main_permissions.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/serializers.py) | ![screenshot](docs/testing/pyli_main_serializers.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/settings.py) | ![screenshot](docs/testing/pyli_main_settings.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/urls.py) | ![screenshot](docs/testing/pyli_main_urls.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/views.py) | ![screenshot](docs/testing/pyli_main_views.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/models.py) | ![screenshot](docs/testing/pyli_matches_models.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/serializers.py) | ![screenshot](docs/testing/pyli_matches_serializers.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/tests.py) | ![screenshot](docs/testing/pyli_matches_tests.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/urls.py) | ![screenshot](docs/testing/pyli_matches_urls.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/views.py) | ![screenshot](docs/testing/pyli_matches_views.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/profiles/models.py) | ![screenshot](docs/testing/pyli_profiles_models.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/profiles/serializers.py) | ![screenshot](docs/testing/pyli_profiles_serializers.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/profiles/urls.py) | ![screenshot](docs/testing/pyli_profiles_urls.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/profiles/views.py) | ![screenshot](docs/testing/pyli_profiles_views.png) | Pass: No Errors |
-| site | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/) | ![screenshot](docs/testing) | Pass: No Errors |
+| attendings/apps.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/apps.py) | ![screenshot](docs/testing/pyli_attendings_apps.png) | Pass: No Errors |
+| attendings/models.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/models.py) | ![screenshot](docs/testing/pyli_attendings_models.png) | Pass: No Errors |
+| attendings/serializers.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/serializers.py) | ![screenshot](docs/testing/pyli_attendings_serializers.png) | Pass: No Errors |
+| attendings/urls.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/urls.py) | ![screenshot](docs/testing/pyli_attendings_urls.png) | Pass: No Errors |
+| attendings/views.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/attendings/views.py) | ![screenshot](docs/testing/pyli_attendings_views.png) | Pass: No Errors |
+| comments/apps.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/apps.py) | ![screenshot](docs/testing/pyli_comments_apps.png) | Pass: No Errors |
+| comments/models.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/models.py) | ![screenshot](docs/testing/pyli_comments_models.png) | Pass: No Errors |
+| comments/serializers.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/serializers.py) | ![screenshot](docs/testing/pyli_comments_serializers.png) | Pass: No Errors |
+| comments/urls.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/urls.py) | ![screenshot](docs/testing/pyli_comments_urls.png) | Pass: No Errors |
+| comments/views.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/comments/views.py) | ![screenshot](docs/testing/pyli_comments_views.png) | Pass: No Errors |
+| guns/apps.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/apps.py) | ![screenshot](docs/testing/pyli_guns_apps.png) | Pass: No Errors |
+| guns/models.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/models.py) | ![screenshot](docs/testing/pyli_guns_models.png) | Pass: No Errors |
+| guns/serializers.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/serializers.py) | ![screenshot](docs/testing/pyli_guns_serializers.png) | Pass: No Errors |
+| guns/tests.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/tests.py) | ![screenshot](docs/testing/pyli_guns_tests.png) | Pass: No Errors |
+| guns/urls.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/urls.py) | ![screenshot](docs/testing/pyli_guns_urls.png) | Pass: No Errors |
+| guns/views.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/guns/views.py) | ![screenshot](docs/testing/pyli_guns_views.png) | Pass: No Errors |
+| main/permissions.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/permissions.py) | ![screenshot](docs/testing/pyli_main_permissions.png) | Pass: No Errors |
+| main/serializers.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/serializers.py) | ![screenshot](docs/testing/pyli_main_serializers.png) | Pass: No Errors |
+| main/settings.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/settings.py) | ![screenshot](docs/testing/pyli_main_settings.png) | Pass: No Errors |
+| main/urls.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/urls.py) | ![screenshot](docs/testing/pyli_main_urls.png) | Pass: No Errors |
+| main/views.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/main/views.py) | ![screenshot](docs/testing/pyli_main_views.png) | Pass: No Errors |
+| matches/models.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/models.py) | ![screenshot](docs/testing/pyli_matches_models.png) | Pass: No Errors |
+| matches/serializers.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/serializers.py) | ![screenshot](docs/testing/pyli_matches_serializers.png) | Pass: No Errors |
+| matches/tests.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/tests.py) | ![screenshot](docs/testing/pyli_matches_tests.png) | Pass: No Errors |
+| matches/urls.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/urls.py) | ![screenshot](docs/testing/pyli_matches_urls.png) | Pass: No Errors |
+| matches/views.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/matches/views.py) | ![screenshot](docs/testing/pyli_matches_views.png) | Pass: No Errors |
+| profiles/models.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/profiles/models.py) | ![screenshot](docs/testing/pyli_profiles_models.png) | Pass: No Errors |
+| profiles/serializers.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/profiles/serializers.py) | ![screenshot](docs/testing/pyli_profiles_serializers.png) | Pass: No Errors |
+| profiles/urls.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/profiles/urls.py) | ![screenshot](docs/testing/pyli_profiles_urls.png) | Pass: No Errors |
+| profiles/views.py | [CI PEP8](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/rpf13/sportsshooting_drf/main/profiles/views.py) | ![screenshot](docs/testing/pyli_profiles_views.png) | Pass: No Errors |
 
 </details>
 

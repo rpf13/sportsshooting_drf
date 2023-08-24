@@ -1,6 +1,7 @@
 # SportsShooting - DRF API
 
 The "SportsShooting DRF API" is a site, which acts as the API for the related React Front End project [SportsShooting](https://github.com/rpf13/sportsshooting_react). It will provide the necessary back end and API functionality, to be consumed by the React front end application.
+So it's main purpose is to provide the back end, it is not an application to be used by its own. The main benefit comes in place, once it is used in combination with the react front end application.
 
 Link to deployed DRF API site: [SportsShooting DRF API](https://sportsshooting-drf-rpf13-5060e23f8756.herokuapp.com/)
 
@@ -93,26 +94,26 @@ The following ERD (Entity Relationship Diagram) displays the SQL database schema
 
 The following list will give a brief overview of the available API andpoints
 
-| **URL** |
-|---|
-| admin/ |
-| dj-rest-auth/logout/ |
-| dj-rest-auth/login/ |
-| dj-rest-auth/user |
-| dj-rest-auth/registration/ |
-| dj-rest-auth/token/refresh |
-| profiles/ |
-| profiles/int:pk/ |
-| matches/ |
-| matches/int:pk/ |
-| comments/ |
-| comments/int:pk/ |
-| guns/ |
-| guns/int:pk/ |
-| attendings/ |
-| attendings/int:pk/ |
-| usermessages/ |
-| usermessages/int:pk/ |
+| **URL** | **Comment** |
+| --- | --- |
+| admin/ | django built in admin url |
+| dj-rest-auth/logout/ | dj-rest-auth package provided url |
+| dj-rest-auth/login/ | dj-rest-auth package provided url |
+| dj-rest-auth/user | dj-rest-auth package provided url |
+| dj-rest-auth/registration/ | dj-rest-auth package provided url |
+| dj-rest-auth/token/refresh | dj-rest-auth package provided url |
+| profiles/ |  |
+| profiles/int:pk/ |  |
+| matches/ |  |
+| matches/int:pk/ |  |
+| comments/ |  |
+| comments/int:pk/ |  |
+| guns/ |  |
+| guns/int:pk/ |  |
+| attendings/ |  |
+| attendings/int:pk/ |  |
+| usermessages/ | only available once the model is added again, since this was stretch obj. and not implemented in front end part |
+| usermessages/int:pk/ | only available once the model is added again, since this was stretch obj. and not implemented in front end part |
 
 ---
 
@@ -128,16 +129,16 @@ The main url of the API application points to the "Welcoome" page, displaying a 
 
 ### User Profile
 
-As part of the profiles app, or better said, as used for the profiles, there is a variety of urls provided by the dj-rest-auth package, which has been used to implemente secure authentication via JWT.
+As part of the profiles app, or better said, as used for the profiles, there is a variety of urls provided by the dj-rest-auth package, which has been used to implement secure authentication via JWT.
 We do have the following endpoints available:
-- registration: 
+- registration
 - login
 - logout
 - user
 - token refresh
 
 These endpoints are used in the front end via the repsective forms to create and manage a new user.
-The followin snapshots display each of them.
+The following snapshots display each of them.
 
 <details>
 <summary>JWT dj-rest url snapshots</summary>
@@ -173,7 +174,7 @@ Once the user is logged in, he can create a new match entry via filling in at le
 
 ![Match Create](docs/testing/02_matches_create.png)
 
-There is a variety of fielters / search fields in place. It is possible to search after the `username`, `title`, `match_date` as well as the `match_location`. Furthermore some `filterset_fields` have been added to filter based on the `level_filter` or on `profile`. 
+There is a variety of filters / search fields in place. It is possible to search after the `username`, `title`, `match_date` as well as the `match_location`. Furthermore some `filterset_fields` have been added to filter based on the `level_filter` or on `profile`. 
 Each match gets posted by default with a `level_filter` value of `Level-1`, if the user does not choose another value. This field is later used on the front end to filter based on them.
 
 ![Match Filters](docs/testing/02_match_list_filters.png)
@@ -200,14 +201,15 @@ If a user is logged in and hence the owner of a comment, he can update or delete
 
 ### Attending
 
-The attendings model is used with a one to many relation based on teh user and the match. The main purpose is that a logged in user can attend a match and that this will create such an attending object. Please note that it is crucial that also the match event owner can attend his own match event. Only this way, a correct number of attendings are possible.
+The attendings model is used with a one to many relation based on the user and the match. The main purpose is that a logged in user can attend a match and that this will create such an attending object. Please note that it is crucial that also the match event owner can attend his own match event. Only this way, a correct number of attendings are possible.
 The model uses the `unique_together` setting via the Meta class, which will make sure that:
-    - User A can participate in Match 1.
-    - User A can also participate in Match 2.
-    - User B can participate in Match 1.
-But, User A cannot participate in Match 1 again because that combination already exists.
 
-This is also further checked in the `crate` method of the serializer via the IntegrityError check.
+- User A can participate in Match 1.
+- User A can also participate in Match 2.
+- User B can participate in Match 1.
+- **But, User A cannot participate in Match 1 again** because that combination already exists.
+
+This is also further checked in the `create` method of the serializer via the IntegrityError check.
 
 ![Attending List & Create](docs/testing/04_attending_list_create.png)
 
@@ -219,22 +221,23 @@ If the detail view is accessed via it's PK, not much more data is available, how
 
 The gun model has a one to many relation to the user. It is only available to the logged in user and only to himself, not to any other. Therefore, to assure the security and integrity of the data to his respective owner, a custom permission class has been built. `IsOwner` is the custom permissionclass, which only allows the owner of an object to view or edit it. Alongside the django `IsAuthenticated` permission class, this is kind of a double verification to ensure the integrity.
 
-The model only requires two mandatory fields like the `brand` and `gun_model`. The iamge field uses the same size check, as already explained in the match section.
+The model only requires two mandatory fields like the `brand` and `gun_model`. The image field uses the same size check, as already explained in the match section. In the front end part, the image also becomes mandatory to set, once an object is created.
 A filterset filed is implemented in order to filter based on `handgun` or `rifle` type of gun, where s the `handgun` is the default value. There are also some search fields defined in order to search after the `brand`, `gund_model` or the `serial_number`
 
 ![Gun List & Filter](docs/testing/05_gun_list_filter.png)
 ![Gund Create](docs/testing/05_gun_create.png)
 
-If the detail view is called via it's PK, it is again possible to update the object, where as the existing data gets pre populated. The deletion of the gun objct is also possible.
+If the detail view is called via it's PK, it is again possible to update the object, where as the existing data gets pre populated. The deletion of the gun object is also possible.
 
-[Gun Detail & Delete](docs/testing/05_gun_detail_delete.png)
+![Gun Detail & Delete](docs/testing/05_gun_detail_delete.png)
 
 ### Usermessages
 
-The Usermessages got only implemented in the DRF backend. It was one of my Stretch Objectives for the back end part. Since this feature did not make it into the front end, I've decided to take it again out of the DRF code, since it may be not a good idea to have unused code in there.
+The Usermessages got only implemented in the DRF backend. It was one of my **Stretch Objectives** for the back end part. **Since this feature did not make it into the front end, I've decided to take it again out of the DRF code, since it may be not a good idea to have unused code in there.**
+
 Anyway, once the feature get's implemented in the front end part, it can easily be put back into the DRF section, since from a database model perspective, it has only a dependency on the user model.
 
-The feature itself, once implemented, is only available to the registered user. A registered user can send a message to another user. The messages are only visible, if the user is logged in.
+The feature itself, once implemented, is only available to the registered user. A registered (and logged in) user can send a message to another user. The messages are only visible, if the user is logged in.
 
 ![Messages Create](docs/images/07_messages_create.png)
 
@@ -264,12 +267,14 @@ which will help to get all the received messages of a user, once the instance is
 - The User model has a OneToOne relationship to the Profile model and via this relation, we get the profile_id
 
 **profile_image**
-T- he `profile_image`is also derived from the Profile model, which is related to the user. Here we get the actual iamge url of the senders profile.
+- The `profile_image`is also derived from the Profile model, which is related to the user. Here we get the actual image url of the senders profile.
 
 **usermessage**
 - The `usermessage`field is part of the Detail Serializer and it will get the id of a particular message.
 
-**Views** Regarding the views, here a brief explanation of their intention.
+**Views** 
+
+Regarding the views, here a brief explanation of their intention.
 
 **UsermessageList**
 
@@ -451,9 +456,9 @@ The URL also needs to be added to the existing list in the main urls.py file
 
 ## Features Left to Implement
 
-The following two features were not implemented and will be a good task for the next iteration.
+Besides the Usermessages feature, which would have to be developed in the front end and then added again to the DRF back end, the following two features were not implemented and will be a good task for the next iteration.
 
-- Deployment - **STRETCH** Refactor JWT to httpOnly cookie: As a Developer I can refactor the existing JWT solution with tokens in local storage to a JWT httpOnly cookie solution** so that **my application gets more secure and JS has no longer access to the local storage tokens [Link](https://github.com/rpf13/sportsshooting_drf/issues/40)
+- Deployment - **STRETCH** Refactor JWT to httpOnly cookie: As a Developer I can refactor the existing JWT solution with tokens in local storage to a JWT httpOnly cookie solution** so that my application gets more secure and JS has no longer access to the local storage tokens [Link](https://github.com/rpf13/sportsshooting_drf/issues/40)
 - Profiles - **STRETCH** Profile delete: As a Developer I can delete my profile and all it's linked content, so my account will be completely erased from the API - STRETCH OBJECTIVE - Not implemented [Link](https://github.com/rpf13/sportsshooting_drf/issues/7)
 
 ---
@@ -504,8 +509,6 @@ In addition to the above mentioned resources, I have used the following librarie
 
 ## Development
 
-The following chapters describe why and how I have choosen to code certain parts the way they are. This section should give an explanation to my thinking process and explain the reader some conceptual decisions.
-
 ### Commit messages
 
 I have decided to mostly use multiline commit messages. Commit messages are an essential part of the whole project and a single line commit message is just not enough to explain. After reading [this interesting article](https://cbea.ms/git-commit/), it was clear to me, that I have to use it.
@@ -522,14 +525,14 @@ I have decided to use (mostly) multiline commits, but using tags as described th
 
 ## Agile Development Process
 
-I am totally convinced, that an agile development process is crucial for any project. It helped me a lot to keep focus and take the big project piece by piece. Furthermore, it really let me think at the beginning of the project on how to approach this project and which taks might be needed.
+I am totally convinced, that an agile development process is crucial for any project. It helped me a lot to keep focus and take the big project piece by piece. Furthermore, it really let me think at the beginning of the project on how to approach this project and which tasks might be needed.
 
-Since not everyting was clear from the beginning, especially since this is only the back end part of the project and not all details of the front end were clear at this point in time, it was partially difficult. However, while doing the front end part, I had to come back to the back end and change a few things.
+Since not everything was clear from the beginning, especially since this is only the back end part of the project and not all details of the front end were clear at this point in time, it was partially difficult. However, while doing the front end part, I had to come back to the back end and change a few things.
 
 ### Github Projects
 
 [Github Projects](https://github.com/users/rpf13/projects/6/views/1) has been used as the Agile tool during the development phase of this project. The Kanban board was very useful to keep track on the tasks. I have created 4 columns (ToDo, In Progress, On Hold, Done) and moved the stories accordingly. 
-The On Hold column has served as a "parking spaces", when a story was partially done, but not completely finished.
+The On Hold column has served as a "parking space", when a story was partially done, but not completely finished.
 
 ![Github Projects Kanban Board](docs/images/github_projects.png)
 
@@ -702,7 +705,7 @@ You can fork this repository by using the following steps:
 
 ### Code
 
-I did quite some research for this project. Besides the tutorials lessons we had as part of the [Code Institutes](https://codeinstitute.net/global/) material, I have used the following resources:
+I did quite some research for this project. Besides the tutorial lessons and walkthrough project we had as part of the [Code Institutes](https://codeinstitute.net/global/) material, I have used the following resources:
 
 - [DRF - Main Site](https://www.django-rest-framework.org/) Django Rest Framework's official documentation, providing a general introduction and overview.
 - [Authentication](https://www.django-rest-framework.org/api-guide/authentication/) Explanation on how DRF handles user authentication.
@@ -740,7 +743,8 @@ For the testing part, I have used the following additional resources:
 ### Acknowledgements
 
 - Without the support of my wife and my little son, it would not have been possible to spend endless hours, working on this project and doing research. Many thanks to my little son for giving me a smile and very welcomed distraction, during times I was frustrated.
-- My Mentor Aleksei Knovalov was a big support for this project. He helped me to understand certain concepts and gave me very welcomed guidance. THANK YOU VERY MUCH! You are such a great perons and very skilled developer!
-- A big Thank you to the tutor team from Code Institute team, who has helped me with a few very nasty issues in the project
-- A big thank you also goes to the awesome Code Institute Slack community, who was always very supportive!
+- My Mentor Aleksei Konovalov was a big support for this project. He helped me to understand certain concepts and gave me very welcomed guidance. THANK YOU VERY MUCH! You are such a great person and very skilled developer!
+- A big Thank You to the tutor team from Code Institute, who has helped me with a few very nasty issues in the project
+- A big Thank You also goes to the awesome Code Institute Slack community, who was always very supportive!
 
+---
